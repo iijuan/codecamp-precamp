@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>회원가입 검증 실습</title>
+    <script>
+        function 인풋검증기능(){
+            const 이메일 = document.getElementById("이메일입력창").value // abc@naver.com
+            
+            const 양식 = 이메일.includes("@")
+            
+            
+
+            if(양식 !== true){
+                alert("제대로 된 이메일이 아닙니다. 이메일에 @가 없습니다.")
+            }
+
+// abc@ , naver.com 분리 
+const 분리된이메일 = 이메일.split("@") // ['abc', 'naver.com'] 으로 분리
+console.log('분리된이메일', 분리된이메일)
+// naver, gmail, hanmail 중, 하나만 일치하면 돼.
+const domain = ["naver.com","gmail.com", "hanmail.net"]
+
+const 분리된애도메인 = 분리된이메일[1]; // 'naver.com'
+
+const 있니 = domain.includes(분리된애도메인) // true || false
+
+
+if(있니 === false){
+    alert('이메일은 naver.com, gmail.com, hanmail.net 중에서만 가입 가능합니다.')
+}
+        }
+// 일치하지 않으면 alert 창
+
+//주석을 쓰세요
+// 단계별로 최대한 자세하게
+// 주석밑에다가 주석이 해야되는 일을 코드로 쓰세요
+//안되면 콘솔을 찍어서 확인해야돼
+    </script>
+</head>
+<body>
+    이메일: <input id="이메일입력창" type="text" /><button onclick="인풋검증기능()">회원가입</button>
+</body>
+</html>
