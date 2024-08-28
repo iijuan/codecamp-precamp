@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>타이머</title>
+    <script>
+        function 인증번호요청기능(){
+    
+        
+            
+            const 여섯자리숫자 = Math.floor(Math.random() * 1000000)
+
+            const 인증번호 = String(여섯자리숫자).padStart(6, "0")
+
+            document.getElementById("인증번호보여주는곳").innerText = 인증번호
+        
+
+        // }
+
+        // function 인증번호요청기능(){
+            
+
+            let 시간 = 179
+
+            setInterval(function(){
+                const 분 = Math.floor(시간 / 60)
+                const 초 = 시간 % 60
+                document.getElementById("타이머").innerText = `${분}:${초}`
+
+                시간 = 시간 - 1
+            }, 1000)
+
+            document.getElementById("버튼").disabled = true
+            document.getElementById("버튼").style = "color: red"
+
+        }
+
+    </script>
+    
+</head>
+<body>
+    <div id="인증번호보여주는곳">000000</div>
+    <button id="버튼" onclick="인증번호요청기능()">인증번호 요청하기</button>
+    <div id="타이머">03:00</div>
+</body>
+</html>
